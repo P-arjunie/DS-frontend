@@ -3,6 +3,7 @@ import DriverRegisterForm from './driver/DriverRegisterForm'
 import DriverLoginForm from './driver/DriverLoginForm'
 import DriverDashboard from './driver/DriverDashboard'
 import TrackingMap from './components/TrackingMap'
+import DriverProfile from './driver/DriverProfile'
 
 
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/login-driver" element={<DriverLoginForm />} />
         <Route path="/dashboard" element={<DriverDashboard />} />
         <Route path="/trackingMap" element={<TrackingMap />} />
+        <Route path="/profile" element={<DriverProfile />} />
+
 
 
 
