@@ -23,7 +23,7 @@ const DriverRegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Step 1: Register driver in local backend
+      // Register driver only in local backend
       const res = await fetch('http://localhost:5000/api/drivers/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,32 +33,15 @@ const DriverRegisterForm = () => {
       const result = await res.json();
 
       if (res.ok) {
-        // Step 2: Register driver in external auth service
-        const authRes = await fetch('https://auth-service-2-4xm3.onrender.com/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: formData.email,
-            password: formData.password,
-            role: 'driver'
-          })
+        setMessage("Driver registered successfully.");
+        setFormData({
+          name: '', nic: '', address: '', age: '', gender: '', email: '', password: ''
         });
-
-        const authResult = await authRes.json();
-
-        if (authRes.ok) {
-          setMessage("Driver registered successfully and credentials saved.");
-          setFormData({
-            name: '', nic: '', address: '', age: '', gender: '', email: '', password: ''
-          });
-        } else {
-          setMessage("Driver saved, but auth registration failed: " + (authResult.message || ""));
-        }
       } else {
         setMessage(result.message || "Registration failed.");
       }
     } catch (err) {
-      setMessage("Error connecting to backend or auth service.");
+      setMessage("Error connecting to backend.");
     }
   };
 
