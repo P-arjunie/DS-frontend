@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../components/DashboardSideBar';
 
 const DriverDashboard = () => {
   const navigate = useNavigate();
@@ -10,22 +11,21 @@ const DriverDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Driver Dashboard</h1>
-        <p className="text-gray-600 mb-6">Welcome! You're successfully logged in.</p>
+    <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar with logout */}
+      <Sidebar onLogout={handleLogout} />
 
-        {/* Dashboard Features Placeholder */}
-        <div className="mb-6">
-          <p className="text-gray-500">Dashboard content coming soon...</p>
+      {/* Main content */}
+      <div className="flex-1 p-10">
+        <div className="bg-white rounded-xl shadow-md p-8 max-w-3xl mx-auto">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Driver Dashboard</h1>
+          <p className="text-gray-600 mb-6">Welcome! You're successfully logged in.</p>
+
+          {/* Dashboard Features Placeholder */}
+          <div className="border rounded p-6 bg-gray-50">
+            <p className="text-gray-500 text-center">Dashboard content coming soon...</p>
+          </div>
         </div>
-
-        <button
-          onClick={handleLogout}
-          className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
-        >
-          Logout
-        </button>
       </div>
     </div>
   );
