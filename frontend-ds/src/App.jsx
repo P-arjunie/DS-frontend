@@ -6,6 +6,12 @@ import TrackingMap from './components/TrackingMap'
 import DriverProfile from './driver/DriverProfile'
 
 
+
+
+
+import RestaurantRegister from './restaurant/RestaurantRegister'
+
+
 function App() {
   return (
     <Router>
@@ -21,7 +27,7 @@ function App() {
 
 
 
-
+        <Route path="/register-restaurant" element={<RestaurantRegister />} />
 
 
       </Routes>
