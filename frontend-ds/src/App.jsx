@@ -14,6 +14,13 @@ function App() {
         <Route path="/login-driver" element={<DriverLoginForm />} />
         <Route path="/dashboard" element={<DriverDashboard />} />
         <Route path="/trackingMap" element={<TrackingMap />} />
+
+
+
+
+
+
+
       </Routes>
     </Router>
   )
