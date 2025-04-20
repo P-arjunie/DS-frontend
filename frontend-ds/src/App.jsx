@@ -3,6 +3,7 @@ import DriverRegisterForm from './driver/DriverRegisterForm'
 import DriverLoginForm from './driver/DriverLoginForm'
 import DriverDashboard from './driver/DriverDashboard'
 import TrackingMap from './components/TrackingMap'
+import RestaurantRegister from './restaurant/RestaurantRegister'
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
 
 
-
+        <Route path="/register-restaurant" element={<RestaurantRegister />} />
 
 
       </Routes>
