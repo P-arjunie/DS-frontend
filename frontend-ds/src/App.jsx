@@ -3,7 +3,8 @@ import DriverRegisterForm from './driver/DriverRegisterForm'
 import DriverLoginForm from './driver/DriverLoginForm'
 import DriverDashboard from './driver/DriverDashboard'
 import TrackingMap from './components/TrackingMap'
-
+import CustomerLoginForm from './customer/CustomerLoginForm'
+import CustomerRegisterForm from './customer/CustomerRegisterForm'
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
 
 
 
-
-
+        {/* Route for customer */}
+        <Route path="/customer-login" element={<CustomerLoginForm />} />
+        <Route path="/customer-register" element={<CustomerRegisterForm />} />
 
 
       </Routes>
