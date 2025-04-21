@@ -65,7 +65,7 @@ const CustomerRegisterForm = () => {
                 <img src="/api/placeholder/50/50" alt="Crust Pizza Logo" className="rounded-full" />
               </div>
               <div>
-                <h1 className="text-3xl font-extrabold text-white tracking-tight">JOIN THE CRUST CREW!</h1>
+                <h1 className="text-3xl font-extrabold text-white tracking-tight">JOIN THE BiteSpeed CREW!</h1>
                 <p className="text-orange-100">Where every slice tells a delicious story</p>
               </div>
             </div>
