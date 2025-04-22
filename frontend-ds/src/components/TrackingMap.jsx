@@ -46,10 +46,23 @@ const TrackingMap = () => {
     );
   };
 
-  const handleStartTrip = () => {
+  const handleStartTrip = async () => {
     if (!destination) {
       alert('Please enter a destination');
       return;
+    }
+
+    // Check if permission is granted (optional enhancement)
+    if (navigator.permissions) {
+      try {
+        const result = await navigator.permissions.query({ name: 'geolocation' });
+        if (result.state === 'denied') {
+          alert('Location access is denied. Please enable location permissions.');
+          return;
+        }
+      } catch (err) {
+        console.warn('Permissions API not fully supported.', err);
+      }
     }
 
     if (navigator.geolocation) {
@@ -80,7 +93,7 @@ const TrackingMap = () => {
         {
           enableHighAccuracy: true,
           maximumAge: 0,
-          timeout: 15000,
+          timeout: 20000, // allow 20s for better accuracy
         }
       );
     } else {
