@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import food1 from '../assets/food1.jpg'; // You can use your food image here
 
 const CustomerRegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -31,202 +33,159 @@ const CustomerRegisterForm = () => {
       const result = await res.json();
       
       if (res.ok) {
-        setMessage("Awesome! You're all set to order some delicious pizza!");
+        setMessage("Registration successful!");
         setFormData({
           name: '', phone: '', address: '', email: '', password: ''
         });
       } else {
-        setMessage(result.message || "Oops! Registration hit a snag.");
+        setMessage(result.message || "Registration failed.");
       }
     } catch (err) {
-      setMessage("Can't reach our ovens right now. Try again soon!");
+      setMessage("Connection error. Please try again.");
     }
   };
   
   return (
-    <div className="min-h-screen bg-gray-100 relative overflow-hidden">
-      {/* Background pizza elements */}
-      <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-orange-200 opacity-40"></div>
-      <div className="absolute top-1/4 -right-10 w-32 h-32 rounded-full bg-orange-300 opacity-30"></div>
-      <div className="absolute bottom-10 left-10 w-24 h-24 rounded-full bg-orange-400 opacity-20"></div>
+    <div className="min-h-screen relative">
+      {/* Simplified background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${food1})`,
+          filter: 'brightness(0.3)'
+        }}
+      />
       
       {/* Main container */}
-      <div className="container mx-auto px-4 py-10">
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div className="container mx-auto px-4 py-10 relative z-10">
+        <div className="max-w-3xl mx-auto bg-white bg-opacity-95 rounded-lg shadow-lg overflow-hidden">
           
           {/* Header */}
-          <div className="bg-orange-500 py-6 px-8 relative">
-            <div className="absolute top-0 right-0 w-full h-full">
-              <div className="absolute -top-6 right-10 w-16 h-16 bg-yellow-400 rounded-full opacity-20"></div>
-              <div className="absolute top-10 right-20 w-10 h-10 bg-red-400 rounded-full opacity-20"></div>
-            </div>
-            <div className="flex items-center space-x-4 relative z-10">
-              <div className="bg-black p-2 rounded-full">
-                <img src="/api/placeholder/50/50" alt="Crust Pizza Logo" className="rounded-full" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-extrabold text-white tracking-tight">JOIN THE BiteSpeed CREW!</h1>
-                <p className="text-orange-100">Where every slice tells a delicious story</p>
-              </div>
-            </div>
+          <div className="bg-orange-500 py-4 px-6">
+            <h1 className="text-2xl font-bold text-white">JOIN THE BiteSpeed CREW!</h1>
+            <p className="text-orange-100">Where every bite delivers delight</p>
           </div>
           
           <div className="flex flex-col md:flex-row">
             {/* Left info column */}
-            <div className="w-full md:w-2/5 bg-black p-8 text-white relative">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-20 left-10 w-16 h-16 border-4 border-orange-500 rounded-full"></div>
-                <div className="absolute bottom-40 right-10 w-20 h-20 border-4 border-orange-500 rounded-full"></div>
-                <div className="absolute bottom-20 left-20 w-12 h-12 border-4 border-orange-500 rounded-full"></div>
-              </div>
-              
-              <div className="relative z-10 space-y-8">
+            <div className="w-full md:w-1/3 bg-gray-900 p-6 text-white">
+              <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-orange-400 mb-2">Why Join?</h3>
-                  <ul className="space-y-3">
+                  <h3 className="text-lg font-bold text-orange-400 mb-2">Why Join?</h3>
+                  <ul className="space-y-2">
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">🍕</span>
-                      <span>Exclusive deals just for members</span>
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Exclusive deals</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">🎁</span>
-                      <span>Birthday surprises you'll love</span>
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Birthday surprises</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">⚡</span>
-                      <span>Fast & easy ordering experience</span>
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Fast ordering</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">🌟</span>
-                      <span>Earn points with every bite</span>
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Earn points</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-gray-900 p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold text-white mb-2">Already a member?</h3>
-                  <a href="#" className="block text-center py-2 px-4 bg-orange-500 hover:bg-orange-600 rounded-md font-medium transition-colors">
+                  <Link to="/login-customer" className="block text-center py-2 px-4 bg-orange-500 hover:bg-orange-600 rounded-lg font-medium">
                     LOG IN HERE
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             
             {/* Right form column */}
-            <div className="w-full md:w-3/5 p-8">
-              <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Create Your Slice of the Action!</h2>
+            <div className="w-full md:w-2/3 p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Create Your Account</h2>
               
               {message && (
-                <div className="mb-6 p-4 rounded-lg bg-orange-100 border-l-4 border-orange-500 text-center">
+                <div className="mb-4 p-3 rounded-lg bg-orange-100 border-l-4 border-orange-500">
                   {message}
                 </div>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">What should we call you?</label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-500">😎</span>
-                    </div>
-                    <input 
-                      id="name"
-                      name="name" 
-                      placeholder="Your awesome name" 
-                      value={formData.name} 
-                      onChange={handleChange} 
-                      required 
-                      className="w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                    />
-                  </div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <input 
+                    id="name"
+                    name="name" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    required 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+                  />
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">How can we reach you?</label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-500">📱</span>
-                    </div>
-                    <input 
-                      id="phone"
-                      name="phone" 
-                      placeholder="Your phone number" 
-                      value={formData.phone} 
-                      onChange={handleChange} 
-                      required 
-                      className="w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                    />
-                  </div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                  <input 
+                    id="phone"
+                    name="phone" 
+                    value={formData.phone} 
+                    onChange={handleChange} 
+                    required 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+                  />
                 </div>
                 
                 <div>
-                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Where should we deliver?</label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-500">🏠</span>
-                    </div>
-                    <input 
-                      id="address"
-                      name="address" 
-                      placeholder="Your delivery address" 
-                      value={formData.address} 
-                      onChange={handleChange} 
-                      required 
-                      className="w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                    />
-                  </div>
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label>
+                  <input 
+                    id="address"
+                    name="address" 
+                    value={formData.address} 
+                    onChange={handleChange} 
+                    required 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+                  />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">What's your email?</label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-500">✉️</span>
-                    </div>
-                    <input 
-                      id="email"
-                      type="email" 
-                      name="email" 
-                      placeholder="Your email address" 
-                      value={formData.email} 
-                      onChange={handleChange} 
-                      required 
-                      className="w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                    />
-                  </div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <input 
+                    id="email"
+                    type="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    required 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+                  />
                 </div>
                 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Create a secret password</label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-500">🔑</span>
-                    </div>
-                    <input 
-                      id="password"
-                      type="password" 
-                      name="password" 
-                      placeholder="Your secret password" 
-                      value={formData.password} 
-                      onChange={handleChange} 
-                      required 
-                      className="w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                    />
-                  </div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                  <input 
+                    id="password"
+                    type="password" 
+                    name="password" 
+                    value={formData.password} 
+                    onChange={handleChange} 
+                    required 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+                  />
                 </div>
                 
-                <div className="pt-4">
+                <div className="pt-2">
                   <button 
                     type="submit" 
-                    className="w-full py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transform hover:scale-105 transition-all shadow-lg"
+                    className="w-full py-3 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600"
                   >
-                    LET'S GET COOKIN'! 🔥
+                    REGISTER
                   </button>
                 </div>
               </form>
               
-              <p className="text-center text-gray-600 mt-6">
-                By joining, you agree to our deliciously reasonable 
+              <p className="text-center text-gray-600 mt-4 text-sm">
+                By joining, you agree to our 
                 <a href="#" className="text-orange-500 hover:underline"> Terms </a> 
                 &amp; 
                 <a href="#" className="text-orange-500 hover:underline"> Privacy Policy</a>

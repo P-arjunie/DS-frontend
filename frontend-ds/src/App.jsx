@@ -6,6 +6,7 @@ import TrackingMap from './components/TrackingMap'
 
 import CustomerLoginForm from './customer/CustomerLoginForm'
 import CustomerRegisterForm from './customer/CustomerRegisterForm'
+import CustomerProfile from './customer/CustomerProfile'
 
 import DriverProfile from './driver/DriverProfile'
 
@@ -33,6 +34,7 @@ function App() {
         {/* Route for customer */}
         <Route path="/customer-login" element={<CustomerLoginForm />} />
         <Route path="/customer-register" element={<CustomerRegisterForm />} />
+        <Route path="/customer-profile" element={<CustomerProfile />} />
 
 
 
