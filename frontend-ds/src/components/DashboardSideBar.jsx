@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTachometerAlt, FaBoxOpen, FaUser, FaSignOutAlt, FaSearch } from 'react-icons/fa';
+import { FaTachometerAlt, FaBoxOpen, FaUser, FaSignOutAlt, FaSearch, FaCar } from 'react-icons/fa';
 
 const DriverDashboardSidebar = ({ onLogout }) => {
   return (
@@ -17,11 +17,15 @@ const DriverDashboardSidebar = ({ onLogout }) => {
           <FaBoxOpen />
           My Orders
         </a>
-        <a href="/find-orders" className="flex items-center gap-3 hover:text-yellow-400">
+        <a href="/dashboard/findOrders" className="flex items-center gap-3 hover:text-yellow-400">
           <FaSearch />
           Find Orders
         </a>
-        <a href="/profile" className="flex items-center gap-3 hover:text-yellow-400">
+        <a href="/dashboard/addVehicle" className="flex items-center gap-3 hover:text-yellow-400">
+          <FaCar />
+          Add Vehicle
+        </a>
+        <a href="/dashboard/profile" className="flex items-center gap-3 hover:text-yellow-400">
           <FaUser />
           Profile
         </a>
