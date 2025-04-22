@@ -34,6 +34,9 @@ import RestaurantRegister from './restaurant/RestaurantRegister'
 
 
 
+// This is the default content shown at /dashboard
+
+
 function App() {
   return (
     <Router>
@@ -53,6 +56,7 @@ function App() {
 
 
         <Route path="/register-restaurant" element={<RestaurantRegister />} />
+
 
 
 
