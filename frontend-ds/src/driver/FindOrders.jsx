@@ -24,7 +24,7 @@ const FindOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.post('http://localhost:5001/api/get-nearby-orders');
+      const res = await axios.post('https://assigns-delivery.onrender.com/api/get-nearby-orders');
       if (res.data.orders) {
         setOrders(res.data.orders);
         setMessage('');
@@ -41,7 +41,7 @@ const FindOrders = () => {
   const fetchDriverProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/drivers/profile/me', {
+      const res = await fetch('https://driver-service-3k84.onrender.com/api/drivers/profile/me', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
