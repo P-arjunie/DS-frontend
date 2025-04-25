@@ -24,7 +24,7 @@ const FindOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.post('http://localhost:5001/api/get-nearby-orders');
+      const res = await axios.post('https://assigns-delivery.onrender.com/api/get-nearby-orders');
       if (res.data.orders) {
         setOrders(res.data.orders);
         setMessage('');
