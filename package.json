@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@react-google-maps/api": "^2.20.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.3"
   }
 }
