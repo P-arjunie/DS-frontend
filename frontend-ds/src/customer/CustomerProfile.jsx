@@ -26,7 +26,7 @@ const CustomerProfile = () => {
         return;
       }
       
-      const response = await fetch('http://localhost:5001/api/customers/profile', {
+      const response = await fetch('https://customer-service-lqm4.onrender.com/api/customers/profile', {
         method: 'GET',
         headers: {
           'Authorization': token,
@@ -85,7 +85,7 @@ const CustomerProfile = () => {
           {/* Profile card */}
           <div className="bg-white bg-opacity-95 backdrop-filter backdrop-blur-sm rounded-2xl shadow-2xl p-8 border-t-4 border-orange-500 max-w-lg mx-auto transform hover:scale-102 transition-transform duration-300">
             <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-4 rounded-xl mb-6 text-center">
-              <h2 className="text-2xl font-bold">My Profile 😋</h2>
+              <h2 className="text-2xl font-bold">My Profile</h2>
             </div>
             
             {loading ? (
