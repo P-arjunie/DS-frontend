@@ -7,6 +7,8 @@
 import CustomerLoginForm from './customer/CustomerLoginForm'
 import CustomerRegisterForm from './customer/CustomerRegisterForm'
 import CustomerProfile from './customer/CustomerProfile'
+import CustomerHome from './customer/CustomerHome'
+import ViewMenu from "./customer/ViewMenu";
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -33,6 +35,14 @@ const DashboardHome = () => (
 
 
 import RestaurantRegister from './restaurant/RestaurantRegister'
+import RestaurantLogin from './restaurant/RestaurantLogin'
+import RestaurantDashboard from './restaurant/RestaurantDashboard'
+import RestaurantProfile from './restaurant/RestaurantProfile'
+import MenuManagement from './restaurant/MenuManagement'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import HandleOrders from './restaurant/HandleOrders'
+
 
 
 
@@ -55,9 +65,10 @@ function App() {
         <Route path="/customer-login" element={<CustomerLoginForm />} />
         <Route path="/customer-register" element={<CustomerRegisterForm />} />
         <Route path="/customer-profile" element={<CustomerProfile />} />
+        <Route path="/customer-home" element={<CustomerHome />} />
+        <Route path="/restaurant/:id" element={<ViewMenu />} />
 
-
-
+        {/* Route for restaurant */}
         <Route path="/register-restaurant" element={<RestaurantRegister />} />
 
 
@@ -71,6 +82,14 @@ function App() {
           <Route path="findOrders" element={<FindOrders />} />
           <Route path="tracking" element={<OrderTracking />} />
         </Route>
+        <Route path="/login-restaurant" element={<RestaurantLogin />} />
+        <Route path="/restaurant/dashboard" element={<RestaurantDashboard />} />
+        <Route path="/restaurant/profile" element={<RestaurantProfile />} />
+        <Route path="/restaurant/menu" element={<MenuManagement />} />
+        <Route path="/restaurant/orders" element={<HandleOrders />} />
+        
+       
+        
       </Routes>
     </Router>
   );
