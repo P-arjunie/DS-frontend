@@ -16,6 +16,7 @@ import TrackingMap from './components/TrackingMap';
 import DriverProfile from './driver/DriverProfile';
 import AddVehicle from './driver/AddVehicle';
 import FindOrders from './driver/FindOrders';
+import OrderTracking from './driver/OrderTracking'
 
 // This is the default content shown at /dashboard
 const DashboardHome = () => (
@@ -66,6 +67,7 @@ function App() {
           <Route path="profile" element={<DriverProfile />} />
           <Route path="addVehicle" element={<AddVehicle />} />
           <Route path="findOrders" element={<FindOrders />} />
+          <Route path="tracking" element={<OrderTracking />} />
         </Route>
       </Routes>
     </Router>

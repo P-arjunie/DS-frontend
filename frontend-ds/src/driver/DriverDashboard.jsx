@@ -15,7 +15,7 @@ const DriverDashboard = () => {
       <Sidebar onLogout={handleLogout} />
 
       <div className="flex-1 p-10">
-        <div className="bg-white rounded-xl shadow-md p-8 max-w-3xl mx-auto space-y-6">
+        <div >
           
           <Outlet />
         </div>
