@@ -168,6 +168,7 @@ const RestaurantRegisterForm = () => {
               <option value="Chinese">Chinese</option>
               <option value="Italian">Italian</option>
               <option value="Thai">Thai</option>
+              <option value="Cafe, Coffee, Snacks">Cafe, Coffee, Snacks</option>
             </select>
 
             <input type="file" name="image" accept="image/*" onChange={handleChange} required className="w-full p-3 border rounded-md" />
