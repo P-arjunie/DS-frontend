@@ -10,8 +10,8 @@ const DriverProfile = () => {
         const token = localStorage.getItem("token");
         const res = await fetch("http://localhost:5000/api/drivers/profile/me", {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         const data = await res.json();
@@ -29,20 +29,42 @@ const DriverProfile = () => {
     fetchProfile();
   }, []);
 
-  if (error) return <p>{error}</p>;
-  if (!profile) return <p>Loading...</p>;
+  if (error)
+    return (
+      <div className="max-w-md mx-auto mt-10 p-4 bg-red-100 text-red-600 rounded shadow">
+        <p>{error}</p>
+      </div>
+    );
+
+  if (!profile)
+    return (
+      <div className="max-w-md mx-auto mt-10 p-4 text-center text-gray-600">
+        <p>Loading...</p>
+      </div>
+    );
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded">
-      <h2 className="text-xl font-bold mb-4">Driver Profile</h2>
-      <p><strong>Name:</strong> {profile.name}</p>
-      <p><strong>Email:</strong> {profile.email}</p>
-      <p><strong>NIC:</strong> {profile.nic}</p>
-      <p><strong>Address:</strong> {profile.address}</p>
-      <p><strong>Age:</strong> {profile.age}</p>
-      <p><strong>Gender:</strong> {profile.gender}</p>
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+      <h2 className="text-2xl font-semibold text-center text-blue-600 mb-6">
+        Driver Profile
+      </h2>
+      <div className="space-y-4">
+        <ProfileField label="Name" value={profile.name} />
+        <ProfileField label="Email" value={profile.email} />
+        <ProfileField label="NIC" value={profile.nic} />
+        <ProfileField label="Address" value={profile.address} />
+        <ProfileField label="Age" value={profile.age} />
+        <ProfileField label="Gender" value={profile.gender} />
+      </div>
     </div>
   );
 };
+
+const ProfileField = ({ label, value }) => (
+  <div className="flex justify-between border-b pb-2">
+    <span className="font-medium text-gray-700">{label}:</span>
+    <span className="text-gray-900">{value}</span>
+  </div>
+);
 
 export default DriverProfile;
