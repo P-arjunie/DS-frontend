@@ -41,7 +41,7 @@ const FindOrders = () => {
   const fetchDriverProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/drivers/profile/me', {
+      const res = await fetch('https://driver-service-3k84.onrender.com/api/drivers/profile/me', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
