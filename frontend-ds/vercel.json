@@ -5,13 +5,7 @@
       "destination": "/index.html"
     }
   ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "prebuild": "npm rebuild lightningcss --platform=linux --arch=x64"
-      }
-    }
-  ]
+  
+  "buildCommand": "npm rebuild lightningcss --platform=linux --arch=x64 && npm run build",
+  "outputDirectory": "dist"
 }
