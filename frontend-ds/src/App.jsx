@@ -2,7 +2,7 @@
 
 
 
-
+import AdminDashboard from './admin/OrdersChart'
 
 import CustomerLoginForm from './customer/CustomerLoginForm'
 import CustomerRegisterForm from './customer/CustomerRegisterForm'
@@ -73,7 +73,8 @@ function App() {
         <Route path="/register-restaurant" element={<RestaurantRegister />} />
 
 
-
+        {/* Route for admin */}
+        <Route path="/admin-graph" element={<AdminDashboard />} />
 
         {/* Dashboard layout with nested routes */}
         <Route path="/dashboard" element={<DriverDashboard />}>
