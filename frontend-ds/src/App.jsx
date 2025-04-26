@@ -43,6 +43,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HandleOrders from './restaurant/HandleOrders'
 
+import CartPage from './order/CartPage';
+import PaymentPage from './order/PaymentPage';
 
 
 
@@ -88,6 +90,9 @@ function App() {
         <Route path="/restaurant/profile" element={<RestaurantProfile />} />
         <Route path="/restaurant/menu" element={<MenuManagement />} />
         <Route path="/restaurant/orders" element={<HandleOrders />} />
+
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
         
        
         
